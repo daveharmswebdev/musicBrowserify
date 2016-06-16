@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-js": "browserify js/index.js > js/bundle.js",
+    "build-js": "browserify -t hbsfy js/index.js > js/bundle.js",
     "watch-js": "watchify js/index.js -o js/bundle.js -v"
   },
   "author": "",
@@ -12,5 +12,9 @@
   "dependencies": {
     "jquery": "^3.0.0",
     "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "hbsfy": "^2.7.0"
   }
 }
