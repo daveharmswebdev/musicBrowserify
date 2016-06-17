@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-js": "browserify -t hbsfy js/index.js > js/bundle.js",
-    "watch-js": "watchify js/index.js -o js/bundle.js -v"
+    "watch-js": "watchify -t hbsfy js/index.js -o js/bundle.js -v"
   },
   "author": "",
   "license": "ISC",

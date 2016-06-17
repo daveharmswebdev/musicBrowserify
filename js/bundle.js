@@ -27,7 +27,7 @@ render.stageJsonResponse = function(songs) {
 	songs.forEach((song) => this.renderSong(song));
 };
 render.renderSong = function(song) {
-	$('#list__post').append(template({name: song.title}));
+	$('#list__post').append(template({title: song.title, artist: song.artist, album: song.album}));
 };
 
 module.exports = render;
@@ -11177,11 +11177,15 @@ return jQuery;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<h1>Hello "
-    + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"name","hash":{},"data":data}) : helper)))
-    + "!</h1>";
+  return "<div>\n	<p>"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + " - by "
+    + alias4(((helper = (helper = helpers.artist || (depth0 != null ? depth0.artist : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist","hash":{},"data":data}) : helper)))
+    + " on the album "
+    + alias4(((helper = (helper = helpers.album || (depth0 != null ? depth0.album : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"album","hash":{},"data":data}) : helper)))
+    + "</p>\n	<i class=\"iDelete fa fa-minus-circle\" aria-hidden=\"true\"></i>\n</div>`";
 },"useData":true});
 
 },{"hbsfy/runtime":23}]},{},[1]);
