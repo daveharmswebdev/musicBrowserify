@@ -1,5 +1,5 @@
 var $ = require('jQuery');
-var template = require('../template.hbs');
+var template = require('../views/song_template.hbs');
 var render = {};
 
 render.stageJsonResponse = function(songs) {
