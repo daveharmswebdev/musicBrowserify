@@ -3,10 +3,9 @@ var $ = require('jQuery');
 var addMusicForm = require('../views/addMusicForm.hbs');
 var filterMusicForm = require('../views/filterMusicForm.hbs');
 var addUserSong = require('../js/addUserSong.js');
-
+var filterArtistOption = require('../views/filterArtistOption.hbs');
 // append filterMusicForm
-$('.nav').after(filterMusicForm);
-
+loadSongs.read();
 //add music event handler
 $('#addMusicLink').on('click', function() {
 	// show screen 
@@ -26,6 +25,6 @@ $('#addMusicLink').on('click', function() {
 $('#filterMusicLink').on('click', function() {
 	$('.add').remove();
 	$('.nav').after(filterMusicForm);
-})
-
-loadSongs.read();
+	artists = loadSongs.getArtists();
+	artists.forEach((artist) => $('#artistFilter').append(filterArtistOption({artist: artist})));
+});
