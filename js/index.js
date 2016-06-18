@@ -1,18 +1,15 @@
-var loadSongs = require('../js/loadSongs.js');
 var $ = require('jQuery');
+var addUserSong = require('../js/addUserSong.js');
+var loadSongs = require('../js/loadSongs.js');
 var addMusicForm = require('../views/addMusicForm.hbs');
 var filterMusicForm = require('../views/filterMusicForm.hbs');
-var addUserSong = require('../js/addUserSong.js');
 var filterArtistOption = require('../views/filterArtistOption.hbs');
 var filterAlbumOption = require('../views/filterAlbumOption.hbs');
-var filterClick = true;
-var addClick = false;
 // append filterMusicForm
 loadSongs.read();
 //add music event handler
 $('#addMusicLink').on('click', function() {
-	if (addClick === true) {
-		// show screen 
+	if ($('.add').length === 0) {;
 		$('.filter').remove();
 		$('.nav').after(addMusicForm);
 		// add listeners and handlers
@@ -28,13 +25,16 @@ $('#addMusicLink').on('click', function() {
 });
 
 $('#filterMusicLink').on('click', function() {
-	if (filterClick === true) {
+	if ($('.filter').length === 0) {
 		$('.add').remove();
 		$('.nav').after(filterMusicForm);
 		loadFilterSelects();
-		$('#btnFilter').on('click', function() {
-			console.log('filter click');
+		$('#btnFilter').on('click', function(){
+			loadSongs.filter($('#artistFilter').val(),$('#albumFilter').val());
 		});
+		$('#btnClearFilter').on('click', function(){
+			loadSongs.clearFilter();
+		});		
 	}
 });
 
