@@ -24,20 +24,20 @@ load.filter = function(artist, album) {
 		console.log('no artist filter');
 	} else {
 		filteredSongs = songs.filter((song) => song.artist === artist);
-		console.log(filteredSongs);
 	}
 	if (album === 'No Selection') {
 		console.log('no album filter');
 	} else {
 		filteredSongs = songs.filter((song) => song.album === album);
-		console.log(filteredSongs);
 	}
 	$('#list__post').empty();
 	filteredSongs.forEach((song) => render.renderSong(song));
 };
 load.clearFilter = function() {
-	console.log('clear filter');
-}
+	$('#artistFilter').val('No Selection');
+	$('#albumFilter').val('No Selection');
+	songs.forEach((song) => render.renderSong(song));
+};
 load.getArtists = function() {
     var artists = [];
     songs.forEach((song) => artists.push(song.artist));
