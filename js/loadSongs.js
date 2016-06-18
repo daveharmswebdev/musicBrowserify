@@ -30,4 +30,10 @@ load.getArtists = function() {
 	return _.uniq(artists).sort();
 };
 
+load.getAlbums = function() {
+	var albums = [];
+	songs.forEach((song) => albums.push(song.album));
+	return _.uniq(albums).sort();
+}
+
 module.exports = load;
