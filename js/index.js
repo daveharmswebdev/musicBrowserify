@@ -1,8 +1,8 @@
-var loadSongs = require('../js/loadSongs.js');
 var $ = require('jQuery');
+var addUserSong = require('../js/addUserSong.js');
+var loadSongs = require('../js/loadSongs.js');
 var addMusicForm = require('../views/addMusicForm.hbs');
 var filterMusicForm = require('../views/filterMusicForm.hbs');
-var addUserSong = require('../js/addUserSong.js');
 var filterArtistOption = require('../views/filterArtistOption.hbs');
 var filterAlbumOption = require('../views/filterAlbumOption.hbs');
 // append filterMusicForm
@@ -29,9 +29,12 @@ $('#filterMusicLink').on('click', function() {
 		$('.add').remove();
 		$('.nav').after(filterMusicForm);
 		loadFilterSelects();
-		$('#btnFilter').on('click', function() {
-			console.log('filter click');
+		$('#btnFilter').on('click', function(){
+			loadSongs.filter($('#artistFilter').val(),$('#albumFilter').val());
 		});
+		$('#btnClearFilter').on('click', function(){
+			loadSongs.clearFilter();
+		});		
 	}
 });
 
@@ -41,6 +44,3 @@ function loadFilterSelects() {
 	let albums = loadSongs.getAlbums();
 	albums.forEach((album) => $('#albumFilter').append(filterAlbumOption({album: album})));
 }
-
-$('.nav').after(filterMusicForm);
-loadFilterSelects();
