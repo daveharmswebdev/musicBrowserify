@@ -10,7 +10,7 @@ load.read = function() {
     }).done(function(response) {
     	render.renderNav();
         response.songs.forEach(load.setSongs);
-        render.stageJsonResponse(response.songs);
+        render.renderSongs(response.songs);
     });
 };
 load.setSongs = function(song) {
@@ -21,23 +21,16 @@ load.getSongs = function() {
 };
 load.filter = function(artist, album) {
 	let filteredSongs = [];
-	if (artist === 'No Selection') {
-		console.log('no artist filter');
-	} else {
-		filteredSongs = songs.filter((song) => song.artist === artist);
-	}
-	if (album === 'No Selection') {
-		console.log('no album filter');
-	} else {
-		filteredSongs = songs.filter((song) => song.album === album);
-	}
-	$('#list__post').empty();
-	filteredSongs.forEach((song) => render.renderSong(song));
+	if (artist !== 'No Selection') filteredSongs = songs.filter((song) => song.artist === artist);
+	if (album !== 'No Selection') filteredSongs = songs.filter((song) => song.album === album);
+	$('#list__post').remove();
+	render.renderSongs(filteredSongs);
 };
 load.clearFilter = function() {
 	$('#artistFilter').val('No Selection');
 	$('#albumFilter').val('No Selection');
-	songs.forEach((song) => render.renderSong(song));
+	$('#list__post').remove();
+	render.renderSongs(songs);
 };
 load.getArtists = function() {
     var artists = [];

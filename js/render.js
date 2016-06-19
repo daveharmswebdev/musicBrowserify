@@ -1,16 +1,11 @@
 var render = {};
 var $ = require('jQuery');
 var navBar = require('../views/navTemplate.jade');
-var template = require('../views/song_template.hbs');
+var template = require('../views/song_template.jade');
 
-render.stageJsonResponse = function(songs) {
-	songs.forEach((song) => this.renderSong(song));
-};
-render.renderSong = function(song) {
-	$('#list__post').append(template({title: song.title, artist: song.artist, album: song.album}));
-};
 render.renderNav = function() {
 	$('.wrapper').prepend(navBar({}));
-}
+};
+render.renderSongs = (songs) => $('.wrapper').append(template({songs: songs}));
 
 module.exports = render;
