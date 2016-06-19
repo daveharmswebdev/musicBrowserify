@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build-js": "browserify -t hbsfy js/index.js > js/bundle.js",
-    "watch-js": "watchify -t hbsfy js/index.js -o js/bundle.js -v"
+    "watch-js": "watchify -t jadeify -t hbsfy js/index.js -o js/bundle.js -v"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^4.0.5",
+    "jade": "^1.11.0",
+    "jadeify": "^4.6.0",
     "jquery": "^3.0.0",
     "underscore": "^1.8.3",
     "watchify": "^3.7.0"
