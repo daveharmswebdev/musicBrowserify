@@ -4,7 +4,7 @@ var render = require('../js/render.js');
 
 addUserSong.addSong = function(song) {
 	songs.setSongs(song);
-	render.renderSong(song);
+	render.renderSongs(loadSongs.getSongs());
 };
 
 module.exports = addUserSong;

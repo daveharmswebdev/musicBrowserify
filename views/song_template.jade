@@ -1,0 +1,5 @@
+div#list__post.list
+	each val in songs
+		div
+			p=val.title + ' - by ' + val.artist + ' on the album ' + val.album
+			i.iDelete.fa.fa-minus-circle(aria-hidden="true")
