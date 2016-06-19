@@ -8,6 +8,7 @@ load.read = function() {
     $.ajax({
         url: 'data/songs.json'
     }).done(function(response) {
+    	render.renderNav();
         response.songs.forEach(load.setSongs);
         render.stageJsonResponse(response.songs);
     });

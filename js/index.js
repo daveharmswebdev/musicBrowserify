@@ -1,17 +1,17 @@
 var $ = require('jQuery');
 var addUserSong = require('../js/addUserSong.js');
 var loadSongs = require('../js/loadSongs.js');
-var addMusicForm = require('../views/addMusicForm.hbs');
+var addMusicForm = require('../views/addMusicForm.jade');
 var filterMusicForm = require('../views/filterMusicForm.hbs');
 var filterArtistOption = require('../views/filterArtistOption.hbs');
 var filterAlbumOption = require('../views/filterAlbumOption.hbs');
 // append filterMusicForm
 loadSongs.read();
 //add music event handler
-$('#addMusicLink').on('click', function() {
+$('.wrapper').on('click', '#addMusicLink', function() {
 	if ($('.add').length === 0) {;
 		$('.filter').remove();
-		$('.nav').after(addMusicForm);
+		$('.nav').after(addMusicForm({}));
 		// add listeners and handlers
 		$('#addButton').on('click', function() {
 			var song = {
@@ -24,7 +24,7 @@ $('#addMusicLink').on('click', function() {
 	}
 });
 
-$('#filterMusicLink').on('click', function() {
+$('.wrapper').on('click', '#filterMusicLink', function() {
 	if ($('.filter').length === 0) {
 		$('.add').remove();
 		$('.nav').after(filterMusicForm);
