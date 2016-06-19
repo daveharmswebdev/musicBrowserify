@@ -1,5 +1,5 @@
-div#list__post.list
+div#list__post.jumbotron.col-md-6.col-xs-12
 	each val in songs
-		div
+		div.songCard
 			p=val.title + ' - by ' + val.artist + ' on the album ' + val.album
 			i.iDelete.fa.fa-minus-circle(aria-hidden="true")

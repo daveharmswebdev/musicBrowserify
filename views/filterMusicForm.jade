@@ -1,16 +1,16 @@
-section.filter
-	div.filter__row
+div#filterMusicForm.filter.col-md-6
+	div.form-group
 		label(for="artistFilter") Artist
-			select#artistFilter.filter__input
-				option(value="No Selection") No Selection
-				each val in artists
-					option(value=val)= val
-	div.filter__row
+		select#artistFilter.form-control(name="artistFilter")
+			option(value="No Selection") No Selection
+			each val in artists
+				option(value=val)= val
+	div.form-group
 		label(for="albumFilter") Album
-			select#albumFilter.filter__input
-				option(value="No Selection") No Selection
-				each val in albums
-					option(value=val)= val
+		select#albumFilter.form-control(name="albumFilter")
+			option(value="No Selection") No Selection
+			each val in albums
+				option(value=val)= val
 	div.filter__submit
-		button#btnFilter Filter
-		button#btnClearFilter Clear
+		button#btnFilter.btn.btn-primary Filter
+		button#btnClearFilter.btn.btn-primary Clear

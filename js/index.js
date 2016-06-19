@@ -7,10 +7,10 @@ var filterMusicForm = require('../views/filterMusicForm.jade');
 
 loadSongs.read();
 
-$('.wrapper').on('click', '#addMusicLink', function() {
-	if ($('.add').length === 0) {;
-		$('.filter').remove();
-		$('.nav').after(addMusicForm({}));
+$('.container').on('click', '#addMusicLink', function() {
+	if ($('#addMusicForm').length === 0) {;
+		$('#filterMusicForm').remove();
+		$('.row').prepend(addMusicForm({}));
 		$('#addButton').on('click', function() {
 			var song = {
 				title: $('#titleInput').val(), 
@@ -20,16 +20,18 @@ $('.wrapper').on('click', '#addMusicLink', function() {
 			loadSongs.setSongs(song);
 			$('#list__post').remove();
 			render.renderSongs(loadSongs.getSongs());
+			$('.add__input').val('');
+			$('#titleInput').focus();
 		});
 	}
 });
 
-$('.wrapper').on('click', '#filterMusicLink', function() {
-	if ($('.filter').length === 0) {
-		$('.add').remove();
+$('.container').on('click', '#filterMusicLink', function() {
+	if ($('#filterMusicForm').length === 0) {
+		$('#addMusicForm').remove();
 		let artists = loadSongs.getArtists();
 		let albums = loadSongs.getAlbums();
-		$('.nav').after(filterMusicForm({
+		$('.row').prepend(filterMusicForm({
 			artists: artists,
 			albums: albums
 		}));

@@ -1,12 +1,12 @@
-article.add
-	div.add__row
-		label.add__labels(for="name") Title:
-			input#titleInput.add__controls(type="text", name="name")
-	div.add__row
-		label.add__labels(for="artist") Artist:
-			input#artistInput.add__controls(type="text", name="artist")
-	div.add__row
-		label.add__labels(for="album") Album:
-			input#albumInput.add__controls(type="text", name="album")
-	div.add__row
-		button#addButton.add_controls Add
+div#addMusicForm.col-md-6.col-xs-12
+	div.addMusic--input.input-group.row
+		span.label.label-default Title:
+		input#titleInput.form-control.add__input(type="text", name="name", aria-describedby="basic-addon1")
+	div.addMusic--input.input-group.row
+		span.label.label-default Artist:
+		input#artistInput.form-control.add__input(type="text", name="artist", aria-describedby="basic-addon1")
+	div.addMusic--input.input-group.row
+		span.label.label-default Album:
+		input#albumInput.form-control.add__input(type="text", name="album", aria-describedby="basic-addon1")
+	div.addMusic--input.input-group
+		button#addButton.btn.btn-default(type="button") Add
