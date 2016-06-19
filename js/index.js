@@ -2,7 +2,7 @@ var $ = require('jQuery');
 var addUserSong = require('../js/addUserSong.js');
 var loadSongs = require('../js/loadSongs.js');
 var addMusicForm = require('../views/addMusicForm.jade');
-var filterMusicForm = require('../views/filterMusicForm.hbs');
+var filterMusicForm = require('../views/filterMusicForm.jade');
 var filterArtistOption = require('../views/filterArtistOption.hbs');
 var filterAlbumOption = require('../views/filterAlbumOption.hbs');
 // append filterMusicForm
@@ -27,8 +27,13 @@ $('.wrapper').on('click', '#addMusicLink', function() {
 $('.wrapper').on('click', '#filterMusicLink', function() {
 	if ($('.filter').length === 0) {
 		$('.add').remove();
-		$('.nav').after(filterMusicForm);
-		loadFilterSelects();
+		let artists = loadSongs.getArtists();
+		let albums = loadSongs.getAlbums();
+		$('.nav').after(filterMusicForm({
+			artists: artists,
+			albums: albums
+		}));
+		// loadFilterSelects();
 		$('#btnFilter').on('click', function(){
 			loadSongs.filter($('#artistFilter').val(),$('#albumFilter').val());
 		});
