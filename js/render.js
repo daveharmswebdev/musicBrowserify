@@ -1,3 +1,4 @@
+// views
 var render = {};
 var $ = require('jQuery');
 var navBar = require('../views/navTemplate.jade');

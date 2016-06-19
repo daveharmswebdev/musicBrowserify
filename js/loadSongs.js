@@ -1,3 +1,4 @@
+// model
 var load = {};
 var $ = require('jQuery');
 var _ = require('underscore');
