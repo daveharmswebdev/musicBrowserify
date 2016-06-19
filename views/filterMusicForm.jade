@@ -1,0 +1,16 @@
+section.filter
+	div.filter__row
+		label(for="artistFilter") Artist
+			select#artistFilter.filter__input
+				option(value="No Selection") No Selection
+				each val in artists
+					option(value=val)= val
+	div.filter__row
+		label(for="albumFilter") Album
+			select#albumFilter.filter__input
+				option(value="No Selection") No Selection
+				each val in albums
+					option(value=val)= val
+	div.filter__submit
+		button#btnFilter Filter
+		button#btnClearFilter Clear
