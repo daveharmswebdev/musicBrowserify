@@ -1,13 +1,13 @@
 div#filterMusicForm.filter.col-md-6
 	div.form-group
 		label(for="artistFilter") Artist
-		select#artistFilter.form-control(name="artistFilter")
+		select#artistFilter.form-control
 			option(value="No Selection") No Selection
 			each val in artists
 				option(value=val)= val
 	div.form-group
 		label(for="albumFilter") Album
-		select#albumFilter.form-control(name="albumFilter")
+		select#albumFilter.form-control
 			option(value="No Selection") No Selection
 			each val in albums
 				option(value=val)= val
